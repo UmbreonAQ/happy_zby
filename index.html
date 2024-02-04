@@ -1,60 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生日快乐！</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-        #birthday-message {
-            margin-top: 100px;
-            font-size: 24px;
-            display: none;
-        }
-        #birthday-message.active {
-            display: block;
-        }
-        #birthday-message img {
-            width: 200px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张博远生日快乐</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #zby-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+</style>
 </head>
 <body>
-    <div id="birthday-message">
-        <h1>生日快乐，张博远！</h1>
-        <p id="default-message">愿这一天充满欢笑和快乐，未来的每一天都充满阳光和温馨。</p>
-        <p id="special-message" style="display: none;">祝张博远生日快乐，希望你的每一个心愿都能实现！</p>
-        <img src="https://i.ibb.co/DzsfP38/9-XXKAXDS4-I0-LJE9-D7-I-7-H-E.png" alt="张博远的照片">
-    </div>
-    <button onclick="toggleMessage()">显示特别消息</button>
 
-    <script>
-        function toggleMessage() {
-            var defaultMessage = document.getElementById('default-message');
-            var specialMessage = document.getElementById('special-message');
+<h1>张博远生日快乐！</h1>
+<img id="zby-img" src="https://i.ibb.co/DzsfP38/9-XXKAXDS4-I0-LJE9-D7-I-7-H-E.png" alt="张博远的照片">
+<br>
+<button onclick="vote()">投票</button>
 
-            defaultMessage.style.display = (defaultMessage.style.display === 'none') ? 'block' : 'none';
-            specialMessage.style.display = (specialMessage.style.display === 'none') ? 'block' : 'none';
-        }
-    </script>
+<script>
+function vote() {
+  var options = ["不帅", "一般", "别看了我没给你第三个选项"];
+  var randomIndex = Math.floor(Math.random() * options.length);
+  var selectedOption = options[randomIndex];
+  alert("你觉得张博远帅吗？\n选项：" + selectedOption + "\n\n张博远好帅！祝张博远生日快乐！");
+}
+</script>
+
 </body>
 </html>
