@@ -8,6 +8,7 @@
   body {
     font-family: Arial, sans-serif;
     text-align: center;
+    padding: 20px;
   }
   img {
     max-width: 100%;
@@ -20,6 +21,29 @@
     margin: 10px;
     cursor: pointer;
   }
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -27,32 +51,32 @@
 <h1>祝福张博远生日快乐</h1>
 <img src="https://i.ibb.co/DzsfP38/9-XXKAXDS4-I0-LJE9-D7-I-7-H-E.png" alt="张博远的图片">
 
-<button onclick="vote()">点击投票</button>
+<button onclick="openModal()">点击投票</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div>你觉得张博远帅吗？</div>
+    <input type="text" id="optionInput" placeholder="请输入选项1、2或3">
+    <button onclick="showBlessing()">确定</button>
+  </div>
+</div>
 
 <script>
-function vote() {
-  var modalContent = '<div>你觉得张博远帅吗？</div>' +
-                     '<input type="text" id="optionInput" placeholder="请输入选项1、2或3">' +
-                     '<button onclick="showBlessing()">确定</button>';
+var modal = document.getElementById('myModal');
 
-  // 创建模态框
-  var modal = document.createElement('div');
-  modal.style.position = 'fixed';
-  modal.style.top = '0';
-  modal.style.left = '0';
-  modal.style.width = '100%';
-  modal.style.height = '100%';
-  modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+function openModal() {
   modal.style.display = 'flex';
-  modal.style.alignItems = 'center';
-  modal.style.justifyContent = 'center';
-  modal.innerHTML = modalContent;
-  document.body.appendChild(modal);
+}
+
+function closeModal() {
+  modal.style.display = 'none';
 }
 
 function showBlessing() {
   var input = document.getElementById('optionInput').value;
   if (input === '1' || input === '2' || input === '3') {
+    closeModal();
     alert('张博远好帅！祝张博远生日快乐！');
   } else {
     alert('请输入选项1、2或3');
