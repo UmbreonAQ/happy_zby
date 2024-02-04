@@ -10,12 +10,9 @@
     text-align: center;
   }
   img {
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
     margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
   button {
     padding: 10px 20px;
@@ -34,13 +31,9 @@
 
 <script>
 function vote() {
-  var options = ['不帅', '一般', '别看了我没给你第三个选项'];
-  var optionButtons = '';
-  options.forEach(function(option, index) {
-    optionButtons += '<button onclick="showBlessing(' + (index + 1) + ')">' + option + '</button>';
-  });
-
-  var modalContent = '<div>你觉得张博远帅吗？</div>' + optionButtons;
+  var modalContent = '<div>你觉得张博远帅吗？</div>' +
+                     '<input type="text" id="optionInput" placeholder="请输入选项1、2或3">' +
+                     '<button onclick="showBlessing()">确定</button>';
 
   // 创建模态框
   var modal = document.createElement('div');
@@ -57,15 +50,13 @@ function vote() {
   document.body.appendChild(modal);
 }
 
-function showBlessing(option) {
-  var blessings = [
-    '张博远好帅！祝张博远生日快乐！',
-    '祝张博远生日快乐，希望他永远充满活力！',
-    '张博远是最棒的！生日快乐！'
-    // 在这里添加更多祝福语...
-  ];
-  var selectedBlessing = blessings[Math.floor(Math.random() * blessings.length)];
-  alert(selectedBlessing);
+function showBlessing() {
+  var input = document.getElementById('optionInput').value;
+  if (input === '1' || input === '2' || input === '3') {
+    alert('张博远好帅！祝张博远生日快乐！');
+  } else {
+    alert('请输入选项1、2或3');
+  }
 }
 </script>
 
