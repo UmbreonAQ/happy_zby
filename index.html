@@ -11,18 +11,11 @@
     padding: 20px;
   }
   img {
-    max-width: 50%;
+    max-width: 80%;
     height: auto;
     margin-bottom: 20px;
   }
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-  }
-  .modal {
-    display: none;
+  .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -30,20 +23,21 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+    display: none;
     justify-content: center;
     align-items: center;
   }
   .modal-content {
-    background-color: #fefefe;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     max-width: 80%;
-    text-align: left;
+    text-align: center;
   }
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
     cursor: pointer;
   }
 </style>
@@ -53,37 +47,29 @@
 <h1>祝福张博远生日快乐</h1>
 <img src="https://i.ibb.co/DzsfP38/9-XXKAXDS4-I0-LJE9-D7-I-7-H-E.png" alt="张博远的图片">
 
-<button onclick="openModal()">点击投票</button>
+<button onclick="vote()">点击投票</button>
 
-<div id="myModal" class="modal">
+<div class="modal-overlay" id="modalOverlay">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div>你觉得张博远帅吗？</div>
-    <div>提示语：（1）不帅  （2）一般  （3）别看了我没给你第三个选项</div>
-    <input type="text" id="optionInput" placeholder="请输入选项1、2或3">
-    <button onclick="showBlessing()">确定</button>
+    <h2>你觉得张博远帅吗？</h2>
+    <div>
+      <button onclick="showBlessing('不帅')">不帅</button>
+      <button onclick="showBlessing('一般')">一般</button>
+      <button onclick="showBlessing('别看了我没给你第三个选项')">别看了我没给你第三个选项</button>
+    </div>
   </div>
 </div>
 
 <script>
-var modal = document.getElementById('myModal');
+var modalOverlay = document.getElementById('modalOverlay');
 
-function openModal() {
-  modal.style.display = 'flex';
+function vote() {
+  modalOverlay.style.display = 'flex';
 }
 
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-function showBlessing() {
-  var input = document.getElementById('optionInput').value;
-  if (input === '1' || input === '2' || input === '3') {
-    closeModal();
-    alert('张博远好帅！祝张博远生日快乐！');
-  } else {
-    alert('请输入选项1、2或3');
-  }
+function showBlessing(option) {
+  modalOverlay.style.display = 'none';
+  alert('张博远好帅！祝张博远生日快乐！');
 }
 </script>
 
