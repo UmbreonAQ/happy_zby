@@ -3,59 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>张博远生日快乐</title>
+<title>祝福张博远生日快乐</title>
 <style>
   body {
     font-family: Arial, sans-serif;
     text-align: center;
-    padding: 20px;
   }
-  #zby-img {
+  img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
     margin-bottom: 20px;
   }
   button {
     padding: 10px 20px;
-    margin: 10px;
     font-size: 16px;
+    margin: 10px;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  .options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .option {
-    margin-bottom: 10px;
   }
 </style>
 </head>
 <body>
 
-<h1>张博远生日快乐！</h1>
-<img id="zby-img" src="https://i.ibb.co/DzsfP38/9-XXKAXDS4-I0-LJE9-D7-I-7-H-E.png" alt="张博远的照片">
-<br>
-<button onclick="showOptions()">投票</button>
+<h1>祝福张博远生日快乐</h1>
+<img src="https://i.ibb.co/DzsfP38/9-XXKAXDS4-I0-LJE9-D7-I-7-H-E.png" alt="张博远的图片">
+
+<button onclick="vote()">点击投票</button>
 
 <script>
-function showOptions() {
-  var options = ["不帅", "一般", "别看了我没给你第三个选项"];
-  var optionsHTML = '<div class="options">';
-  for (var i = 0; i < options.length; i++) {
-    optionsHTML += '<button class="option" onclick="vote()">' + options[i] + '</button>';
-  }
-  optionsHTML += '</div>';
-  document.body.insertAdjacentHTML('beforeend', optionsHTML);
-}
-
 function vote() {
-  alert("张博远好帅！祝张博远生日快乐！");
+  var options = ['不帅', '一般', '别看了我没给你第三个选项'];
+  var index = Math.floor(Math.random() * 3);
+  var selectedOption = options[index];
+  alert('你觉得张博远帅吗？\n选项：\n(1) 不帅\n(2) 一般\n(3) 别看了我没给你第三个选项\n你的选择是：' + selectedOption);
+
+  // 显示祝福语
+  var blessings = [
+    '张博远好帅！祝张博远生日快乐！',
+    '祝张博远生日快乐，希望他永远充满活力！',
+    '张博远是最棒的！生日快乐！'
+    // 在这里添加更多祝福语...
+  ];
+  var randomIndex = Math.floor(Math.random() * blessings.length);
+  var selectedBlessing = blessings[randomIndex];
+  alert(selectedBlessing);
 }
 </script>
 
