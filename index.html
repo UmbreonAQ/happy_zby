@@ -26,11 +26,13 @@
     border: none;
     border-radius: 5px;
   }
-  @media screen and (max-width: 600px) {
-    #zby-img {
-      width: 80%;
-      margin: auto;
-    }
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .option {
+    margin-bottom: 10px;
   }
 </style>
 </head>
@@ -44,16 +46,16 @@
 <script>
 function showOptions() {
   var options = ["不帅", "一般", "别看了我没给你第三个选项"];
-  var optionsString = "你觉得张博远帅吗？\n选项：\n";
+  var optionsHTML = '<div class="options">';
   for (var i = 0; i < options.length; i++) {
-    optionsString += (i+1) + ". " + options[i] + "\n";
+    optionsHTML += '<button class="option" onclick="vote()">' + options[i] + '</button>';
   }
-  var selectedOption = prompt(optionsString);
-  if (selectedOption !== null && !isNaN(selectedOption) && selectedOption >= 1 && selectedOption <= 3) {
-    alert("张博远好帅！祝张博远生日快乐！");
-  } else {
-    alert("请选择有效的选项！");
-  }
+  optionsHTML += '</div>';
+  document.body.insertAdjacentHTML('beforeend', optionsHTML);
+}
+
+function vote() {
+  alert("张博远好帅！祝张博远生日快乐！");
 }
 </script>
 
